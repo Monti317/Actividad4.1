@@ -2,17 +2,19 @@ pipeline {
     agent any
 
     environment {
-        ROOT_PASSWORD = credentials('Admin1.')
+        ROOT_PASSWORD = credentials('mariadb-pass')
     }
 
     stages {
-
-        stage('Deploy') {
+        stage('Limpieza') {
             steps {
-                sh 'docker compose down -v || true'
+                sh 'docker compose down --remove-orphans'
+            }
+        }
+        stage('Despliegue seguro') {
+            steps {
                 sh 'docker compose up --build -d'
             }
         }
-
     }
 }
