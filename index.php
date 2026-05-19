@@ -10,6 +10,6 @@ if ($conexion->connect_error) {
     die("Error de conexion: " . $conexion->connect_error);
 }
 
-echo "Conexion exitosa a MariaDB";
+echo "Conexion exitosa a MariaDB - Pablo Montiel";
 
 ?>
